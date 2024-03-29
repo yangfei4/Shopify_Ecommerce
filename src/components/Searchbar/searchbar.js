@@ -1,19 +1,18 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./searchbar.scss";
 //event handler type
-const SearchBar = ({submitSearch}) => {
+const SearchBar = ({initialText}) => {
 
-    const [searchText, setSearchText] = useState("");
+    const navigate = useNavigate();
+
+    const [searchText, setSearchText] = useState(initialText);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        submitSearch({searchText});
+        navigate(`/search?searchText=${encodeURIComponent(searchText)}`);
     };
-
-    useEffect(() => {
-        submitSearch({searchText});
-    }, [searchText, submitSearch]);
 
     return (
         <div className="SearchBar">

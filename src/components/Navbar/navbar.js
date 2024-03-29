@@ -9,7 +9,7 @@ const Navbar = () => {
                     {/* icon from font-awsome */}
                     <a href="/cart">
                         Cart&nbsp;
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                     </a>
                 </div>
             </nav>
