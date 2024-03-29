@@ -1,0 +1,21 @@
+header {
+    /* bargin */
+    margin: 10px 30px;
+
+    .navbar__items {
+        /* flex end */
+        display: flex;
+        justify-content: flex-end;
+    
+        a {
+            color: black;
+            font: bold 16px/1.5 Helvetica, Verdana, sans-serif;
+            text-decoration: none;
+            &:hover {
+                /* lighter */
+                color: gray
+            }
+        }
+    }
+}
+
