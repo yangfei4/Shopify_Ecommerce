@@ -1,5 +1,5 @@
 import React from "react";
-import "./detailpage.css";
+import "./detailpage.scss";
 
 const DetailPage = () => {
     return (

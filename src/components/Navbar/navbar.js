@@ -1,5 +1,5 @@
 import React from "react";
-import "./navbar.css";
+import "./navbar.scss";
 
 const Navbar = () => {
     return (
@@ -8,7 +8,7 @@ const Navbar = () => {
                 <div className="navbar__item">
                     {/* icon from font-awsome */}
                     <a href="/cart">
-                        Cart
+                        Cart&nbsp;
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </a>
                 </div>
