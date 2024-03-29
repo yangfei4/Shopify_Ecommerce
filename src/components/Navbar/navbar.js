@@ -7,7 +7,7 @@ const Navbar = () => {
             <nav className="navbar__items">
                 <div className="navbar__item">
                     {/* icon from font-awsome */}
-                    <a href="/">
+                    <a href="/cart">
                         Cart
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </a>
