@@ -6,13 +6,20 @@
     align-items: center;
     width: 100%;
     height: 50%;
+    .logo {
+        width: 100px;
+        height: 100%;
+        margin-right: 10px;
+        // font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        font-family:"Brush Script MT";
+    }
     // border: 1px solid #000000;
     //style for inputBox subcomponent
     .SearchForm{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 auto;
+        margin: 0;
         width: 60%;
         height: 100%;
         border: 1px solid $SeachBarColor;
