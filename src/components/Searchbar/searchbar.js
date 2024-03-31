@@ -11,7 +11,7 @@ const SearchBar = ({initialText}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate(`/search?searchText=${encodeURIComponent(searchText)}`);
+        navigate(`/search?q=${encodeURIComponent(searchText)}`);
     };
 
     return (

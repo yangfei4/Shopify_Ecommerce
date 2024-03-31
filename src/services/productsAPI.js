@@ -42,8 +42,8 @@ export const getProductById = async (id) => {
 
 export const searchProducts = async (searchText) => {
     try {
-        const response = await productsAPI.get(`/search?searchText=${searchText}`);
-        return response.data;
+        const response = await productsAPI.get(`/search?q=${searchText}`);
+        return response.data.products;
     } catch (error) {
         console.log("Error fetching products by search", error);
     }
