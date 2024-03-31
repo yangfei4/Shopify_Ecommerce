@@ -1,13 +1,76 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./detailpage.scss";
+import Image from 'react-bootstrap/Image';
+import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.css'; 
 
 import SearchBar from "../SearchBar";
 
+import { getProductById } from "../../services/productsAPI";
+
 const DetailPage = () => {
+    // get id
+    const location = useLocation();
+    const productId = location.pathname.split("/")[2];
+
+    const [product, setProduct] = useState(null);
+    
+    useEffect(() => {
+        // fetch product by id
+        getProductById(productId).then((data) => {
+            setProduct(data);
+        });
+    }
+    , [productId]);
+
+    const addToCart = () => {
+        alert("Added to cart");
+    }
+
     return (
         <div className="detailpage">
             <SearchBar />
-            <h1>Welcome to the detailpage</h1>
+            <div className="content">
+                {product ? (
+                    <div className="product-card">
+                        {/* <img className="image-carousel" src={product.thumbnail} alt={product.title} /> */}
+                        <div className="carousel-container">
+                            <Carousel variant='dark'>
+                                {product.images.map((image, index) => (
+                                    <Carousel.Item key={index}>
+                                        <Image src={image} alt={product.title} fluid />
+                                    </Carousel.Item>
+                                ))}
+                            </Carousel>
+                        </div>
+                        <div className="product-info">
+                            <h2 className="product-name">{product.description}</h2>
+                            <p className="product-price">US ${product.price.toFixed(2)}</p>
+                            {product.discountPercentage > 0 && (
+                                        // show original price with strike through and current price and save percentage
+                                        <p className="product-discount">
+                                            <span className="original-price">${(product.price*(1+product.discountPercentage*0.01)).toFixed(2)}</span>
+                                            <span>&nbsp; Save {product.discountPercentage}%</span>
+                                        </p>
+                            )}
+                            {/* in stock */}
+                            {product.stock > 0 ? (
+                                <p className="product-stock">In Stock: {product.stock}</p>
+                            ) : (
+                                <p className="product-stock">Out of Stock</p>
+                            )}
+                            <div className="buttons" >
+                                <Button className="buy-button" variant="primary" size="lg">Buy It Now</Button>
+                                <Button className="cart-button" type="submit" variant="info" size="lg" onClick={addToCart}>Add to cart</Button>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <h2>Loading...</h2>
+                )}
+            </div>
         </div>
     );
 };
