@@ -25,7 +25,7 @@ export const getProductCategories = async () => {
 export const getProductsByCategory = async (category) => {
     try {
         const response = await productsAPI.get(`/category/${category}`);
-        return response.data;
+        return response.data.products;
     } catch (error) {
         console.log("Error fetching products by category", error);
     }
