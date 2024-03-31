@@ -16,7 +16,9 @@ const SearchBar = ({initialText}) => {
 
     return (
         <div className="SearchBar">
-            <h2 className="logo">Shopify</h2>
+            <a href="/home">
+                <h2 className="logo">Shopify</h2>
+            </a>
             <form onSubmit={(event) => handleSubmit(event)} className="SearchForm" action="./">
                 <span>
                     <i className="fa fa-search" aria-hidden="true"></i>
