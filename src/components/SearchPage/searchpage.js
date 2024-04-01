@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./searchpage.scss";
 import { useLocation } from 'react-router-dom';
 
-import SearchBar from "../SearchBar";
+import SearchBar from "../Searchbar";
 import { Rate } from 'antd';
 
 import { searchProducts } from "../../services/productsAPI";

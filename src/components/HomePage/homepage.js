@@ -1,7 +1,6 @@
 import React from "react";
 import "./homepage.scss";
-import SearchBar from "../SearchBar";
-import Image from 'react-bootstrap/Image';
+import SearchBar from "../Searchbar";
 
 import { useState, useEffect } from "react";
 

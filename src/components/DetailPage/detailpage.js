@@ -6,7 +6,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css'; 
 
-import SearchBar from "../SearchBar";
+import SearchBar from "../Searchbar";
 
 import { getProductById } from "../../services/productsAPI";
 
