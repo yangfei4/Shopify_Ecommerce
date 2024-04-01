@@ -1,0 +1,76 @@
+{   
+    "data":[
+    {
+        "id": 2,
+        "title": "iPhone X",
+        "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+        "price": 899,
+        "quantity": 1,
+        "discountPercentage": 17.94,
+        "rating": 4.44,
+        "stock": 34,
+        "brand": "Apple",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+        "images": [
+            "https://cdn.dummyjson.com/product-images/2/1.jpg",
+            "https://cdn.dummyjson.com/product-images/2/2.jpg",
+            "https://cdn.dummyjson.com/product-images/2/3.jpg",
+            "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Samsung Universe 9",
+        "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+        "price": 1249,
+        "quantity": 1,
+        "discountPercentage": 15.46,
+        "rating": 4.09,
+        "stock": 36,
+        "brand": "Samsung",
+        "category": "smartphones",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+        "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg"
+        ]
+    },
+    {
+        "id": 19,
+        "title": "Skin Beauty Serum.",
+        "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+        "price": 46,
+        "quantity": 1,
+        "discountPercentage": 10.68,
+        "rating": 4.42,
+        "stock": 54,
+        "brand": "ROREC White Rice",
+        "category": "skincare",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg",
+        "images": [
+            "https://cdn.dummyjson.com/product-images/19/1.jpg",
+            "https://cdn.dummyjson.com/product-images/19/2.jpg",
+            "https://cdn.dummyjson.com/product-images/19/3.png",
+            "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "MacBook Pro",
+        "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+        "price": 1749,
+        "quantity": 1,
+        "discountPercentage": 11.02,
+        "rating": 4.57,
+        "stock": 83,
+        "brand": "Apple",
+        "category": "laptops",
+        "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
+        "images": [
+            "https://cdn.dummyjson.com/product-images/6/1.png",
+            "https://cdn.dummyjson.com/product-images/6/2.jpg",
+            "https://cdn.dummyjson.com/product-images/6/3.png",
+            "https://cdn.dummyjson.com/product-images/6/4.jpg"
+        ]
+    }]
+}

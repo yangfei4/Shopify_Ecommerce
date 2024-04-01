@@ -39,7 +39,6 @@ const HomePage = () => {
                         <h2 className="category-title">{category}</h2>
                         <div className="products">
                             {productsOfCategories && productsOfCategories[category]?.map((product) => {
-                                console.log(product);
                                 return (
                                         <div key={product.id} className="product">
                                             <a href={`/product/${product.id}`} className="product">
