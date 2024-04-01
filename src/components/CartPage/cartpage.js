@@ -8,17 +8,12 @@ import { Checkbox } from 'antd';
 
 import { removeItemfromStore } from "../../actions/actions";
 
-const CartPage = () => {
+const CartPage = (props) => {
     const dispatch = useDispatch();
-    const cart = useSelector((state) => {return state.cartItems;});
 
-    const [cartItems, setCartItems] = useState(cart);
+    const [cartItems, setCartItems] = useState(props.cartItems);
     const [selectedItemIds, setSelectedItemIds] = useState([]);
     const [subtotal, setSubtotal] = useState(0);
-
-    useEffect(() => {
-        setCartItems(cart);
-    }, [cart]);
 
     const selectAll = (e) => {
         if(e.target.checked) {

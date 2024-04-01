@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import "./detailpage.scss";
 import Image from 'react-bootstrap/Image';
 import Carousel from 'react-bootstrap/Carousel';
@@ -9,10 +10,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import SearchBar from "../Searchbar";
 
 import { getProductById } from "../../services/productsAPI";
+import { addItemToStore } from "../../actions/actions"
 
 const DetailPage = () => {
-    // get id
     const location = useLocation();
+    const dispatch = useDispatch();
     const productId = location.pathname.split("/")[2];
 
     const [product, setProduct] = useState(null);
@@ -26,7 +28,12 @@ const DetailPage = () => {
     , [productId]);
 
     const addToCart = () => {
-        alert("Added to cart");
+        const newItem = {
+            ...product,
+            quantity: 1
+        };
+        dispatch(addItemToStore(newItem));
+        alert("Item added to cart");
     }
 
     return (

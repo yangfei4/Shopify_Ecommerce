@@ -1,6 +1,6 @@
 import actionTypes from "./actionTypes";
 
-export const addItem = (item) => async (dispatch) => {
+export const addItemToStore = (item) => async (dispatch) => {
     dispatch({
         type: actionTypes.ADD_ITEM,
         payload: item
