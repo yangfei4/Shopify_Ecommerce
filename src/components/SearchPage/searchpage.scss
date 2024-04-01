@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .searchpage {
     display: flex;
     flex-direction: column;
@@ -16,7 +18,7 @@
             .product-card {
                 display: flex;
                 flex-direction: row;
-                margin-top: 2vh;
+                padding: 2vh 0;
                 // height: 30vh;
                 width: 100%;
                 // border
@@ -30,13 +32,15 @@
                     border-radius: 10px;
                 }
                 .product-name {
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                 }
                 .product-info {
                     display: flex;
                     flex-direction: column;
                     text-align: start;
                     // height: 30vh;
+                    padding: 1vh;
+
                     margin-left: 10px;
                     a {
                         font-family: 'Roboto', sans-serif;
@@ -46,7 +50,7 @@
                     .product-price {
                         margin: 0;
                         font-weight: bold;
-                        font-size: 1.8rem;
+                        font-size: 1.6rem;
                         font-family: system-ui;
 
                         // for number
@@ -60,6 +64,7 @@
                     }
                     .product-category {
                         margin-top: 0;
+                        color: gray;
                     }
                 }
             }
