@@ -23,6 +23,12 @@ function App() {
           <Route path="/product/:id" element={<DetailPage />} />
           <Route path="/cart" element={<CartPage {...initialState}/>} />
         </Routes>
+        <footer>
+          <p>&copy; 2024 Yangfei. All rights reserved. &nbsp;
+            <a style={{color: "green", textDecoration: "none", fontWeight: "bold"}}
+            href="https://yangfei4.github.io/ ">Yangfei's Portfolio</a>
+          </p>
+        </footer>
       </div>
     </BrowserRouter>
   );
