@@ -6,27 +6,35 @@ import Image from 'react-bootstrap/Image';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css'; 
-import { Rate } from 'antd';
+import { Rate, Divider, Card } from 'antd';
 
 import SearchBar from "../Searchbar";
 
-import { getProductById } from "../../services/productsAPI";
+import { getProductById, getProductsByCategory } from "../../services/productsAPI";
 import { addItemToStore } from "../../actions/actions"
 
 const DetailPage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const productId = location.pathname.split("/")[2];
+    const { Meta } = Card;
 
     const [product, setProduct] = useState(null);
     
+    const [relatedProducts, setRelatedProducts] = useState([]);
+
     useEffect(() => {
         // fetch product by id
         getProductById(productId).then((data) => {
             setProduct(data);
+            // fetch related products
+            getProductsByCategory(data.category).then((data) => {
+                setRelatedProducts(data);
+            });
         });
     }
     , [productId]);
+
 
     const addToCart = () => {
         const newItem = {
@@ -55,13 +63,13 @@ const DetailPage = () => {
                         </div>
                         <div className="product-info">
                             <h2 className="product-name">{product.description}</h2>
-                            <p className="product-price">
+                            <div className="product-price">
                                 US ${product.price.toFixed(2)}
                                 <span className="rating">
                                     {product.rating}&nbsp;<Rate size="small"
                                      disabled allowHalf defaultValue={product.rating} />
                                 </span>
-                            </p>
+                            </div>
                             {product.discountPercentage > 0 && (
                                         // show original price with strike through and current price and save percentage
                                         <p className="product-discount">
@@ -84,6 +92,31 @@ const DetailPage = () => {
                 ) : (
                     <h2>Loading...</h2>
                 )}
+                <Divider />
+                <div className="related-products-container">
+                    <h4 className="title">Products Related to this item</h4>
+                    <div className="related-products">
+                        {relatedProducts.map((product, index) => (
+                            <div key={index} className="related-product">
+                                <Card
+                                    hoverable
+                                    style={{
+                                    width: 240,
+                                    height: 360
+                                    }}
+                                    cover={
+                                        <a href={`/product/${product.id}`}>
+                                            <img alt="example" src={product.images[0]} />
+                                        </a>
+                                    }
+                                >
+                                        <Meta title={product.title} description={<Rate size="small"
+                                     disabled allowHalf defaultValue={product.rating} />} />
+                                </Card>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );
