@@ -20,7 +20,7 @@ const Navbar = () => {
                     <span className="item">
                         <Dropdown menu={{ items }}>
                             {/* no text-decoration */}
-                            <a onClick={(e) => e.preventDefault()}>
+                            <a href="/" onClick={(e) => e.preventDefault()}>
                             <Space>
                                 My Account
                                 <DownOutlined />
@@ -44,7 +44,7 @@ const Navbar = () => {
 const items = [
     {
       label: (
-        <a target="_blank" rel="noopener noreferrer" href="">
+        <a target="_blank" rel="noopener noreferrer" href="/">
             My account
         </a>
       ),
@@ -52,7 +52,7 @@ const items = [
     },
     {
       label: (
-        <a target="_blank" rel="noopener noreferrer" href="">
+        <a target="_blank" rel="noopener noreferrer" href="/">
             Orders
         </a>
       ),
@@ -60,7 +60,7 @@ const items = [
     },
     {
         label: (
-            <a target="_blank" rel="noopener noreferrer" href="">
+            <a target="_blank" rel="noopener noreferrer" href="/">
                 Wishlist
             </a>
         ),
