@@ -3,11 +3,12 @@ header {
     margin: 10px 30px;
 
     .navbar__items {
-        /* flex end */
         display: flex;
-        justify-content: flex-end;
-    
+        justify-content: space-between;
+        width: 100%;
+        /* flex end */
         a {
+            padding: 0 10px;
             color: black;
             font: bold 16px/1.5 Helvetica, Verdana, sans-serif;
             text-decoration: none;
@@ -15,6 +16,20 @@ header {
                 /* lighter */
                 color: gray
             }
+        }
+
+        .items-left {
+            .home {
+                padding: 0 10px;
+                border-left: 1px solid #000;
+                border-right: 1px solid #000;
+
+            }
+        }
+
+        .items-right {
+            // to the right
+            margin-left: auto;
         }
     }
 }

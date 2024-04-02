@@ -20,7 +20,6 @@
                 box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
                 .cart-item {
                     max-height: 175px;
-
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
@@ -58,6 +57,10 @@
                         .cart-item-name {
                             font-size: 1.5rem;
                             font-weight: bold;
+                            a {
+                                color: black;
+                                text-decoration: none;
+                            }
                             .cart-item-price {
                                 align-self: flex-start;
                                 position: absolute;

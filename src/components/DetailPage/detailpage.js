@@ -6,6 +6,7 @@ import Image from 'react-bootstrap/Image';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css'; 
+import { Rate } from 'antd';
 
 import SearchBar from "../Searchbar";
 
@@ -54,7 +55,13 @@ const DetailPage = () => {
                         </div>
                         <div className="product-info">
                             <h2 className="product-name">{product.description}</h2>
-                            <p className="product-price">US ${product.price.toFixed(2)}</p>
+                            <p className="product-price">
+                                US ${product.price.toFixed(2)}
+                                <span className="rating">
+                                    {product.rating}&nbsp;<Rate size="small"
+                                     disabled allowHalf defaultValue={product.rating} />
+                                </span>
+                            </p>
                             {product.discountPercentage > 0 && (
                                         // show original price with strike through and current price and save percentage
                                         <p className="product-discount">

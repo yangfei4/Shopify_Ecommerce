@@ -90,10 +90,15 @@ const CartPage = (props) => {
                                         <Checkbox checked={selectedItemIds.includes(item.id)} onChange={() => selectItem(item.id)} />
                                     </div>
                                     <div className="cart-item-image">
-                                        <img src={item.images[0]} alt={item.images[0]} />
+                                        <a href={`/product/${item.id}`}>
+                                            <img src={item.images[0]} alt={item.images[0]} />
+                                        </a>
                                     </div>
                                     <div className="cart-item-details">
-                                        <div className="cart-item-name">{item.title}
+                                        <div className="cart-item-name">
+                                            <a href={`/product/${item.id}`}>
+                                                {item.title}
+                                            </a>
                                             <span className="cart-item-price font">${item.price.toFixed(2)}</span>
                                         </div>
                                         <p className="description">{item.description}</p>

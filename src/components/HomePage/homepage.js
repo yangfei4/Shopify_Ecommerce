@@ -13,7 +13,7 @@ const HomePage = () => {
     useEffect(() => {
         getProductCategories().then(async (data) => {
             // randomly select 5 categories
-            const randomCategories = data.sort(() => 0.5 - Math.random()).slice(0, 5);
+            const randomCategories = data.sort(() => 0.5 - Math.random()).slice(0, 8);
             setCategories(randomCategories);
     
             // get products of each category
@@ -21,6 +21,8 @@ const HomePage = () => {
             Promise.all(promises).then((data) => {
                 const productsOfCategory = {};
                 data.forEach((products, index) => {
+                    // if the category has no products, skip it
+                    if (products.length === 0) return;
                     productsOfCategory[randomCategories[index]] = products;
                 });
                 setProductsOfCategories(productsOfCategory);
@@ -28,7 +30,6 @@ const HomePage = () => {
         })
     }, []);
     
-
     return (
         <div className="homepage">
             <SearchBar />
