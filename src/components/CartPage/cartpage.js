@@ -70,7 +70,7 @@ const CartPage = (props) => {
             <SearchBar />
             <div className="cartpage__content">
                 <div className="header-container">
-                    <h1><i className="fa fa-shopping-cart" aria-hidden="true">&nbsp;</i>Shopping Cart</h1>
+                    <h2><i className="fa fa-shopping-cart" aria-hidden="true">&nbsp;</i>Shopping Cart</h2>
                     <div className="selectall-button">
                     &nbsp;
                     <Checkbox onChange={selectAll}>Select all items</Checkbox>
@@ -93,7 +93,9 @@ const CartPage = (props) => {
                                         <img src={item.images[0]} alt={item.images[0]} />
                                     </div>
                                     <div className="cart-item-details">
-                                        <h3 className="name">{item.title}</h3>
+                                        <div className="cart-item-name">{item.title}
+                                            <span className="cart-item-price font">${item.price.toFixed(2)}</span>
+                                        </div>
                                         <p className="description">{item.description}</p>
                                         <div className="cart-item-quantity">
                                             <span>Qty: &nbsp;</span>
@@ -109,9 +111,6 @@ const CartPage = (props) => {
                                             <Button onClick={() => removeItem(item.id)}
                                             size='sm' variant="link">Remove</Button>
                                         </div>
-                                    </div>
-                                    <div className="cart-item-price">
-                                        <h3>${item.price.toFixed(2)}</h3>
                                     </div>
                                 </div>
                             ))

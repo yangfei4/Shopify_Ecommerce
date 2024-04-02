@@ -1,7 +1,6 @@
 @import "../../variables.scss";
 
 .cartpage {
-    font-family: Market Sans, Arial, sans-serif;
     .cartpage__content {
         text-align: start;
         margin: 3rem 2rem;
@@ -20,6 +19,8 @@
                 margin: 1rem;
                 box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
                 .cart-item {
+                    max-height: 175px;
+
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
@@ -32,11 +33,15 @@
                         margin: 1rem;
                     }
                     .cart-item-image {
+                        // height: 200px;
                         img{
                             padding: 1rem;
-                            max-width: 200px;
                             max-height: 200px;
-                            aspect-ratio: 1/1;
+                            max-width: 200px;
+                            // width: auto;
+                            // max-height: 200px;
+                            // if image height is less than 200px, add padding to center the image, the way to do it is to add padding to the image
+
                             border-radius: 25px;
                         }
 
@@ -53,6 +58,17 @@
                         .cart-item-name {
                             font-size: 1.5rem;
                             font-weight: bold;
+                            .cart-item-price {
+                                align-self: flex-start;
+                                position: absolute;
+                                right: 60px;
+                                width: 10%;
+                                // margin-top: 2rem;
+                                // padding: 1.5rem 0;
+                                .font {                            
+                                    font-size: 1.5rem;
+                                }
+                            }
                         }
                         .cart-item-quantity {
                             display: flex;
@@ -72,13 +88,6 @@
                             }
                         }
 
-                    }
-                    .cart-item-price {
-                        align-self: flex-start;
-                        position: absolute;
-                        right: 60px;
-                        width: 10%;
-                        margin-top: 1rem;
                     }
                 }
             }

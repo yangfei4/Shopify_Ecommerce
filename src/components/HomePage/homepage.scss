@@ -1,10 +1,12 @@
 .category {
-    margin: 5rem 2rem;
+    margin: 5rem 8rem;
     text-align: start;
+
     .category-title {
         font-size: 1.5rem;
         font-weight: 600;
         margin-bottom: 1rem;
+        font-family: 'Poppins', sans-serif;
     }
     .products {
         display: flex;
@@ -32,6 +34,8 @@
                 width: 100%;
                 min-width: 50px;
                 min-height: 50px;
+                max-width: 200px;
+                max-height: 200px;
                 aspect-ratio: 1 / 1;
                 object-fit: cover;
                 border-radius: 50%;

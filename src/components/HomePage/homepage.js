@@ -36,7 +36,8 @@ const HomePage = () => {
             {categories.map((category) => {
                 return (
                     <div key={category} className="category">
-                        <h2 className="category-title">{category}</h2>
+                        {/* make the first character upper case */}
+                        <h2 className="category-title">{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
                         <div className="products">
                             {productsOfCategories && productsOfCategories[category]?.map((product) => {
                                 return (
