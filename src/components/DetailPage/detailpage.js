@@ -84,7 +84,7 @@ const DetailPage = () => {
                                 <p className="product-stock">Out of Stock</p>
                             )}
                             <div className="buttons" >
-                                <Button className="buy-button" variant="primary" size="lg">Buy It Now</Button>
+                                <Button onClick={() => {console.log("Buy it now")}} className="buy-button" variant="primary" size="lg">Buy It Now</Button>
                                 <Button className="cart-button" type="submit" variant="info" size="lg" onClick={addToCart}>Add to cart</Button>
                             </div>
                         </div>
