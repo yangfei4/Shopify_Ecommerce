@@ -3,6 +3,7 @@ import "./homepage.scss";
 import SearchBar from "../Searchbar";
 
 import { useState, useEffect } from "react";
+import Carousel from 'react-bootstrap/Carousel';
 
 import { getProductCategories, getProductsByCategory } from "../../services/productsAPI";
 
@@ -33,6 +34,34 @@ const HomePage = () => {
     return (
         <div className="homepage">
             <SearchBar />
+
+            <div className="carousel-container">
+                <Carousel variant='dark'>
+                    {/* load ad1.jpg ad2.jpg ad3.jpg from ../../assets */}
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src="https://github.com/yangfei4/Shopify_Ecommerce/blob/main/assets/ad1.jpg?raw=true"
+                            alt="First image"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src="https://github.com/yangfei4/Shopify_Ecommerce/blob/main/assets/ad2.jpg?raw=true"
+                            alt="Second image"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src="https://github.com/yangfei4/Shopify_Ecommerce/blob/main/assets/ad3.jpg?raw=true"
+                            alt="Third image"
+                        />
+                    </Carousel.Item>
+                </Carousel>
+            </div>
+
             {/* list out products of each catogory */}
             {categories.map((category) => {
                 return (
