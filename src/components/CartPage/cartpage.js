@@ -110,7 +110,7 @@ const CartPage = (props) => {
                                             </span>
                                             <span className="cart-item-price font">${item.price.toFixed(2)}</span>
                                         </div>
-                                        <p className="description">{item.description}</p>
+                                        <p className="cart-item-description">{item.description}</p>
                                         <div className="cart-item-quantity">
                                             <span>Qty: &nbsp;</span>
                                             {/* <input type="number" value={item.quantity} /> */}

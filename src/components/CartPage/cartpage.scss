@@ -3,7 +3,7 @@
 .cartpage {
     .cartpage__content {
         text-align: start;
-        margin: 3rem 2rem;
+        margin: 3rem 1rem;
         .header-container {
             margin: 1rem;
             .selectall-button {
@@ -13,9 +13,12 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            flex-wrap: wrap;
             .cart-items-container {
-                position: relative;
-                width: 70%;
+                width: 65%;
+                @media (max-width: 726px) {
+                    width: 100%;
+                }
                 margin: 1rem;
                 box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
                 .cart-item {
@@ -40,11 +43,12 @@
                             padding: 1rem;
                             max-height: 200px;
                             max-width: 200px;
-                            // width: auto;
-                            // max-height: 200px;
-                            // if image height is less than 200px, add padding to center the image, the way to do it is to add padding to the image
-
                             border-radius: 25px;
+                            @media (max-width: 1024px) {
+                                height: 15vw;
+                                width: 15vw;
+                                margin: 1vh 0;
+                            }
                         }
 
                     }
@@ -58,18 +62,27 @@
                         justify-content: space-between;
                         padding: 1rem;
                         .cart-item-name {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
                             font-size: 1.5rem;
+                            @media (max-width: 726px) {
+                                font-size: 0.8rem;
+                            }
                             font-weight: bold;
                             .cart-item-price {
-                                align-self: flex-start;
-                                position: absolute;
-                                right: 60px;
-                                width: 10%;
-                                // margin-top: 2rem;
-                                // padding: 1.5rem 0;
-                                .font {                            
-                                    font-size: 1.5rem;
+                                // make to the end
+                                margin-left: auto;
+                                margin-right: 20px;
+                                @media (max-width: 726px) {
+                                    margin-left: 0;
                                 }
+                            }
+                        }
+                        .cart-item-description {
+                            @media (max-width: 726px) {
+                                font-size: 0.5rem;
+                                margin-bottom: 0;
                             }
                         }
                         .cart-item-quantity {
@@ -82,11 +95,17 @@
                                 border: 1px solid gray;
                                 border-radius: 8px;
                             }
+                            @media (max-width: 726px) {
+                                font-size: 0.5rem;
+                            }
                         }
                         .cart-item-remove {
                             button{
                                 padding-left: 0;
                                 --bs-btn-padding-x: 0;
+                                @media (max-width: 726px) {
+                                    font-size: 0.5rem;
+                                }
                             }
                         }
 
@@ -94,7 +113,8 @@
                 }
             }
             .cart-summary-container{
-                width: 30%;
+                flex-grow: 1;
+                min-width: 25%;
                 margin: 1rem;
                 // font-weight: bold;
                 color: #191919;

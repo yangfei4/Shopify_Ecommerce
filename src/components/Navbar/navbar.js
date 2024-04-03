@@ -5,8 +5,6 @@ import "./navbar.scss";
 import { Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
-
-
 const Navbar = () => {
 
     const navigate = useNavigate();
