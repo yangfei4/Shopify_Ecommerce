@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./navbar.scss";
 
 import { Dropdown, Space } from 'antd';
@@ -8,32 +9,30 @@ import { DownOutlined } from '@ant-design/icons';
 
 const Navbar = () => {
 
+    const navigate = useNavigate();
+
     return (
         <header className="navbar">
             <nav className="navbar__items">
                 <div className="items-left">
-                    <span className="item">
-                        <a className="home" href="/">HOME</a>
+                    <span className="item anchor home" onClick={()=>navigate("/home")}>
+                        HOME
                     </span>
                 </div>
                 <div className="items-right">
-                    <span className="item">
+                    <span className="item" onClick={()=>navigate("/")}>
                         <Dropdown menu={{ items }}>
                             {/* no text-decoration */}
-                            <a href="/" onClick={(e) => e.preventDefault()}>
                             <Space>
                                 My Account
                                 <DownOutlined />
                             </Space>
-                            </a>
                         </Dropdown>
                     </span>
                     {/* cart icon from font-awsome */}
-                    <span className="item">
-                        <a href="/cart">
+                    <span className="item anchor" onClick={() => navigate("/cart")}>
                             Cart&nbsp;
                             <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                        </a>
                     </span>
                 </div>
             </nav>

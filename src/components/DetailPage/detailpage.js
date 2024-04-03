@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./detailpage.scss";
 import Image from 'react-bootstrap/Image';
@@ -16,6 +16,7 @@ import { addItemToStore } from "../../actions/actions"
 const DetailPage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const productId = location.pathname.split("/")[2];
     const { Meta } = Card;
 
@@ -105,9 +106,9 @@ const DetailPage = () => {
                                     height: 360
                                     }}
                                     cover={
-                                        <a href={`/product/${product.id}`}>
+                                        <div className="cover" onClick={() => navigate(`/product/${product.id}`)}>
                                             <img alt="example" src={product.images[0]} />
-                                        </a>
+                                        </div>
                                     }
                                 >
                                         <Meta title={product.title} description={<Rate size="small"

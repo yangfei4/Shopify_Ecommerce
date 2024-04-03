@@ -3,11 +3,13 @@ import "./homepage.scss";
 import SearchBar from "../Searchbar";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
 
 import { getProductCategories, getProductsByCategory } from "../../services/productsAPI";
 
 const HomePage = () => {
+    const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
     const [productsOfCategories, setProductsOfCategories] = useState({});
 
@@ -42,21 +44,21 @@ const HomePage = () => {
                         <img
                             className="d-block w-100"
                             src="https://github.com/yangfei4/Shopify_Ecommerce/blob/main/assets/ad1.jpg?raw=true"
-                            alt="First image"
+                            alt="First slides"
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
                             src="https://github.com/yangfei4/Shopify_Ecommerce/blob/main/assets/ad2.jpg?raw=true"
-                            alt="Second image"
+                            alt="Second slides"
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
                             src="https://github.com/yangfei4/Shopify_Ecommerce/blob/main/assets/ad3.jpg?raw=true"
-                            alt="Third image"
+                            alt="Third slides"
                         />
                     </Carousel.Item>
                 </Carousel>
@@ -71,12 +73,10 @@ const HomePage = () => {
                         <div className="products">
                             {productsOfCategories && productsOfCategories[category]?.map((product) => {
                                 return (
-                                        <div key={product.id} className="product">
-                                            <a href={`/product/${product.id}`} className="product">
+                                        <div key={product.id} className="product" onClick={() => navigate(`/product/${product.id}`)}>
                                                 <img src={product.images[0]} alt={product.title} />
                                                 {/* if the length of title is less than 20, show ... */}
                                                 <h3 className="product-title">{product.title.length > 20 ? product.title.slice(0, 20) + "..." : product.title}</h3>
-                                            </a>
                                         </div>
                                 );
                             })}

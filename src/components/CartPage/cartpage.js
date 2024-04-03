@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./cartpage.scss";
 
 import SearchBar from "../Searchbar";
@@ -10,6 +11,7 @@ import { removeItemfromStore } from "../../actions/actions";
 
 const CartPage = (props) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [cartItems, setCartItems] = useState(props.cartItems);
     const [selectedItemIds, setSelectedItemIds] = useState([]);
@@ -90,15 +92,15 @@ const CartPage = (props) => {
                                         <Checkbox checked={selectedItemIds.includes(item.id)} onChange={() => selectItem(item.id)} />
                                     </div>
                                     <div className="cart-item-image">
-                                        <a href={`/product/${item.id}`}>
+                                        <div className="anchor" onClick={() => navigate(`/product/${item.id}`)}>
                                             <img src={item.images[0]} alt={item.images[0]} />
-                                        </a>
+                                        </div>
                                     </div>
                                     <div className="cart-item-details">
                                         <div className="cart-item-name">
-                                            <a href={`/product/${item.id}`}>
+                                            <span className="anchor" onClick={() => navigate(`/product/${item.id}`)}>
                                                 {item.title}
-                                            </a>
+                                            </span>
                                             <span className="cart-item-price font">${item.price.toFixed(2)}</span>
                                         </div>
                                         <p className="description">{item.description}</p>

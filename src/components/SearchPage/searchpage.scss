@@ -23,6 +23,9 @@
                 width: 100%;
                 // border
                 border-bottom: 1px solid lightgray;
+                .anchor {
+                    cursor: pointer;
+                }
                 img {
                     // padding: 1vh;
                     margin: 1vh;

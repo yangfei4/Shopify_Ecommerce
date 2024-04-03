@@ -7,14 +7,15 @@ header {
         justify-content: space-between;
         width: 100%;
         /* flex end */
-        a {
+        .item {
             padding: 0 10px;
             color: black;
             font: bold 16px/1.5 Helvetica, Verdana, sans-serif;
             text-decoration: none;
             &:hover {
                 /* lighter */
-                color: gray
+                color: gray;
+                cursor: pointer;
             }
         }
 

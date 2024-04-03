@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./searchpage.scss";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import SearchBar from "../Searchbar";
 import { Rate } from 'antd';
@@ -9,6 +9,7 @@ import { searchProducts } from "../../services/productsAPI";
 
 const SearchPage = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const queryParams = new URLSearchParams(location.search);
     const searchText = queryParams.get('q');
     const [products, setProducts] = useState([]);
@@ -33,13 +34,13 @@ const SearchPage = () => {
                     ) : (
                         products.map((product) => (
                             <div key={product.id} className="product-card">
-                                <a href={`/product/${product.id}`} className="product-link">
+                                <div onClick={() => navigate(`/product/${product.id}`)} className="product-link anchor">
                                     <img src={product.thumbnail} alt={product.title} />
-                                </a>
+                                </div>
                                 <div className="product-info">
-                                    <a href={`/product/${product.id}`} className="product-link">
+                                    <div onClick={() => navigate(`/product/${product.id}`)} className="product-link anchor">
                                         <h3 className="product-name">{product.description}</h3>
-                                    </a>
+                                    </div>
                                     <p className="product-price">${product.price.toFixed(2)}</p>
                                     {/* discount */}
                                     {product.discountPercentage > 0 && (
