@@ -7,7 +7,7 @@ import SearchBar from "../Searchbar";
 import { Button } from "react-bootstrap";
 import { Checkbox } from 'antd';
 
-import { removeItemfromStore } from "../../actions/actions";
+import { removeItemfromStore, updateItemInStore } from "../../actions/actions";
 
 const CartPage = (props) => {
     const dispatch = useDispatch();
@@ -41,17 +41,24 @@ const CartPage = (props) => {
         setSelectedItemIds(newlySelectedList);
         setSubtotal(total);
     }
-
     const updateQuantity = (id, newQuantity) => {
-        const newItems = [...cartItems];
-        const index = newItems.findIndex((item) => item.id === id);
-        const oldQuantity = newItems[index].quantity;
-        newItems[index].quantity = newQuantity;
-        setCartItems(newItems);
-        if(selectedItemIds.includes(id)) {
-            const total = subtotal + (newQuantity - oldQuantity)*newItems[index].price;
+        const updatedItems = cartItems.map(item =>
+            item.id === id ? { ...item, quantity: newQuantity } : item
+        );
+    
+        const updatedItem = updatedItems.find(item => item.id === id);
+    
+        setCartItems(updatedItems);
+    
+        if (selectedItemIds.includes(id)) {
+            const oldQuantity = updatedItem.quantity - newQuantity;
+            const total = subtotal + (newQuantity - oldQuantity) * updatedItem.price;
             setSubtotal(total);
         }
+    
+        console.log("Updated item is:");
+        console.log(updatedItem);
+        dispatch(updateItemInStore(updatedItem));
     }
 
     const removeItem = (id) => {
@@ -108,7 +115,7 @@ const CartPage = (props) => {
                                             <span>Qty: &nbsp;</span>
                                             {/* <input type="number" value={item.quantity} /> */}
                                             {/* selector for quantity */}
-                                            <select onChange={(e) => {updateQuantity(item.id, parseInt(e.target.value))}}>
+                                            <select value={item.quantity} onChange={(e) => {updateQuantity(item.id, parseInt(e.target.value))}}>
                                                 {[...Array(10).keys()].map((i) => (
                                                     <option key={i} value={i+1}>{i+1}</option>
                                                 ))}

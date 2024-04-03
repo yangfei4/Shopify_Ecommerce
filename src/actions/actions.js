@@ -13,3 +13,10 @@ export const removeItemfromStore = (id) => async (dispatch) => {
         payload: id
     });
 };
+
+export const updateItemInStore = (item) => async (dispatch) => {
+    dispatch({
+        type: actionTypes.UPDATE_ITEM,
+        payload: item
+    });
+};
