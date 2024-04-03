@@ -42,6 +42,7 @@ const CartPage = (props) => {
         setSubtotal(total);
     }
     const updateQuantity = (id, newQuantity) => {
+        const oldQuantity = cartItems.find(item => item.id === id).quantity;
         const updatedItems = cartItems.map(item =>
             item.id === id ? { ...item, quantity: newQuantity } : item
         );
@@ -51,7 +52,6 @@ const CartPage = (props) => {
         setCartItems(updatedItems);
     
         if (selectedItemIds.includes(id)) {
-            const oldQuantity = updatedItem.quantity - newQuantity;
             const total = subtotal + (newQuantity - oldQuantity) * updatedItem.price;
             setSubtotal(total);
         }
