@@ -5,9 +5,11 @@
         height: 400px;
         overflow: hidden;
     }
-
     .category {
         margin: 2rem 8rem;
+        @media (max-width: 1024px) {
+            margin: 2rem 2rem;
+        }
         text-align: start;
         .category-title {
             font-size: 1.5rem;
@@ -40,6 +42,11 @@
                     height: 250px;
                     max-width: 220px;
                     object-fit: contain;
+                    // if screen size is less than 1024px, reduce the size of the image
+                    @media (max-width: 1024px) {
+                        height: 200px;
+                        max-width: 180px;
+                    }
                 }
                 .product-title {
                     font-size: 1rem;

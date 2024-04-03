@@ -33,6 +33,11 @@
                     width: 25vh;
                     object-fit: contain;
                     border-radius: 10px;
+                    // if the screen size is less than 1024px, reduce the size of the image
+                    @media (max-width: 1024px) {
+                        height: 20vh;
+                        width: 20vh;
+                    }
                 }
                 .product-name {
                     font-size: 1.2rem;
@@ -43,7 +48,6 @@
                     text-align: start;
                     // height: 30vh;
                     padding: 1vh;
-
                     margin-left: 10px;
                     a {
                         font-family: 'Roboto', sans-serif;
